@@ -46,11 +46,11 @@ export const updateCourseMarket = (courseid,params) => {
 
 //保存课程图片地址到课程数据 库
 export const addCoursePic= (courseId,pic) => {
-  return http.requestPost(apiUrl+'/course/coursepic/add?courseId='+courseId+"&pic="+pic)
+  return http.requestPost(apiUrl+'/course/coursePic/add?courseId='+courseId+"&pic="+pic)
 }
 //查询课程图片
 export const findCoursePicList = courseId => {
-  return http.requestQuickGet(apiUrl+'/course/coursepic/list/'+courseId)
+  return http.requestQuickGet(apiUrl+'/course/coursePic/list/'+courseId)
 }
 
 //删除课程图片

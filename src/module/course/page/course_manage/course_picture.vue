@@ -9,7 +9,8 @@
       :limit="picmax"
       :on-exceed="rejectupload"
       :before-remove="handleRemove"
-      :data="uploadval">
+      :data="uploadval"
+      name="multipartFile">
       <i class="el-icon-plus"></i>
     </el-upload>
   </div>
@@ -27,7 +28,7 @@
         dialogImageUrl: '',
         dialogVisible: false,
         fileList:[],
-        uploadval:{filetag:"course"},//上传提交的额外的数据 ，将uploadval转成key/value提交给服务器
+        uploadval:{filetag:"course",businesskey:"businesskey"},//上传提交的额外的数据 ，将uploadval转成key/value提交给服务器
         imgUrl:sysConfig.imgUrl
       }
     },
@@ -110,9 +111,9 @@
       //查询课程
       courseApi.findCoursePicList(this.courseid).then(res=>{
           if(res && res.pic){
-              let imgUrl = this.imgUrl+res.pic;
+              // let imgUrl = this.imgUrl+res.pic;
               //将图片地址设置到
-            this.fileList.push({name:'pic',url:imgUrl,fileId:res.pic})
+            this.fileList.push({name:'pic',url:res.pic,fileId:res.pic})
           }
 
       })
